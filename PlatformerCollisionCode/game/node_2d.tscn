@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ds7tdiel6i4rh"]
+
+[node name="SceneRoot" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(20, 40)
