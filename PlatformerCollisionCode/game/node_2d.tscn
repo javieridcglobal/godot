@@ -2,5 +2,5 @@
 
 [node name="SceneRoot" type="Node2D"]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Player" type="Area2D" parent="."]
 position = Vector2(20, 40)
