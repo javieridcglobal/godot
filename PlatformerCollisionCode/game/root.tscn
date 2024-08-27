@@ -1,12 +1,69 @@
-[gd_scene load_steps=2 format=3 uid="uid://pq2vy3f65203"]
+[gd_scene load_steps=5 format=3 uid="uid://pq2vy3f65203"]
 
 [ext_resource type="Script" path="res://Player.cs" id="1_g6jxf"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31pcl"]
+size = Vector2(24, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg72i"]
+size = Vector2(1005, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5fvs"]
+size = Vector2(41, 10)
+
 [node name="Root" type="Node2D"]
 
-[node name="Player" type="Area2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(0, 300)
 script = ExtResource("1_g6jxf")
 
 [node name="ColorRect" type="ColorRect" parent="Player"]
 offset_right = 21.0
 offset_bottom = 26.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(9, 12.5)
+shape = SubResource("RectangleShape2D_31pcl")
+
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+target_position = Vector2(1, 37)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(0, 361)
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_left = -1.0
+offset_top = -3.0
+offset_right = 999.0
+offset_bottom = 7.0
+color = Color(0.454902, 0.0862745, 0.184314, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(504, 3.5)
+shape = SubResource("RectangleShape2D_bg72i")
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(297, 317)
+
+[node name="ColorRect" type="ColorRect" parent="Platform"]
+offset_right = 42.0
+offset_bottom = 10.0
+color = Color(0.0588235, 0.168627, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(20.5, 5)
+shape = SubResource("RectangleShape2D_g5fvs")
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(400, 250)
+
+[node name="ColorRect" type="ColorRect" parent="Platform2"]
+offset_right = 42.0
+offset_bottom = 10.0
+color = Color(0.0588235, 0.168627, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(20.5, 5)
+shape = SubResource("RectangleShape2D_g5fvs")
